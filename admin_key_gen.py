@@ -9,7 +9,7 @@ from email.message import EmailMessage
 EMAIL_ADDRESS = os.getenv('EMAIL_USER')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASS')
 
-admin_emails = ['sandwhich.dev@gmail.com']
+admin_emails = []
 admin_key = str(random.randint(100000, 999999))
 
 date = datetime.datetime.now().strftime('%d %b %Y')
