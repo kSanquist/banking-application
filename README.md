@@ -12,8 +12,8 @@ A simulated command line banking application
   - A text file that holds the pickled accounts and their information for use later
 ### admin_home.py
   - Similar to home page, used by admin to remove accounts, among other things
-### WIP admin_key_gen.py
-  - WIP intended to send a random 6-digit code to adming emails allowing access admin_home 
+### [WIP] admin_key_gen.py
+  - intended to send a random 6-digit code to adming emails allowing access admin_home 
 
 ## MAIN.PY
 ### Intro page
@@ -21,6 +21,7 @@ A simulated command line banking application
     1. Create an account
     2. Log into an existing account
     3. Exit the program
+  - Verifying admin password is also done here
 ### Creating an account
   - When creating an account the user is asked to enter personal info:
     - First and last name
