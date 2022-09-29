@@ -10,15 +10,19 @@ A simulated command line banking application
   - The bulk of the programming, once logged in, this is the code that handles everything from that point on; mostly formatting and idiot proofing
 ### accounts.txt
   - A text file that holds the pickled accounts and their information for use later
+### admin_home.py
+  - Similar to home page, used by admin to remove accounts, among other things
+### WIP admin_key_gen.py
+  - WIP intended to send a random 6-digit code to adming emails allowing access admin_home 
 
 ## MAIN.PY
 ### Intro page
-  - Gets user input, at this point the user can decide between 3 options
+  - Handles user input, allowing them to select one of three options:
     1. Create an account
     2. Log into an existing account
     3. Exit the program
 ### Creating an account
-  - When creating an account the user is asked to enter some personal info:
+  - When creating an account the user is asked to enter personal info:
     - First and last name
     - Email address
       - As of right now, there is no authentication for emails so anything can be entered
@@ -31,24 +35,15 @@ A simulated command line banking application
     - If there is it sends them to their Home Page
 
 ## ACCOUNT.PY
-### Class variables
- - Email
- - Password
- - First and last name
- - Account number
-   - A 12-digit account number that is used for transfering from one user to another
- - Checking and savings balances
- - Transfer balance
- - Deposit and withdraw history
-   - A list of previous deposits and withdraws
- - Transfer history 
-   - A list of previoius transfers 
 ### Class methods
  - Deposit money
  - Withdraw money
  - Transfer money
  - Reset account number
-   - Used only if a new account is created with the same account number as an already existing account
+   - Used if a new account is created with the same account number as an already existing account
+
+## ACCOUNTS.TXT
+ - Through the use of the pickle library, created accounts are stored in accounts.txt for use even after the program ceases execution
 
 ## HOME_PAGE.PY
  - Once logged into an account the homepage shows the users the folllowing:
@@ -59,20 +54,22 @@ A simulated command line banking application
      - Deposit money
      - Withdraw money
      - Transfer money
-     - Log out
 ### View ledger
  - Allows user to view previous transactions from deposits and withdraws, to internal and P2P transfers
-
 ### Deposit and Withdraw money
  - Relatively the same in how they work, deposit adds, withdraw subtracts
  - However, with withdraw, before withdrawing, it makes sure there's enough money to withdraw in the account
-
 ### Internal Transfer
  - A transfer from one's checking to their savings or vice versa
  - Simple mechanics: subtracts from the transfer from, and adds to the transfer to
-
 ### P2P Transfer
  - A transfer from one user's account to another user's account
  - Similar to an internal transfer except the program finds the other person the user wants to transfer to using their account number
  - Once a user is found the transfer happens in the same way as the internal transfer
  - The user that was transfered the money is then given a notification and is asked which account they want to transfer the money to
+
+## ADMIN_HOME.PY
+ - After entering random 6-digit code provided in email through admin_pin_gen.py, the user has the ability to:
+   1. View created accounts
+   2. View info on a single account
+   3. Remove accounts
